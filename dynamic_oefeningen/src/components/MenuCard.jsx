@@ -1,13 +1,15 @@
+import Container from 'react-bootstrap/Container';
 import { MenuProduct } from './MenuProduct.jsx';
 
-export function MenuCard() {
+export function MenuCard(props) {
+    const { products } = props;
+
     return (
-        <div>
+        <Container>
             <h1>Menu</h1>
-            <MenuProduct productName="cola" />
-            <MenuProduct productName="water" />
-            <MenuProduct productName="bier" />
-            <MenuProduct productName="wijn" />
-        </div>
+            {products.map((product) => (
+                <MenuProduct key={product.id} product={product} />
+            ))}
+        </Container>
     );
 }
